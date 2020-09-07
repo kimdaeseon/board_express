@@ -10,7 +10,7 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
     <script src="/javascripts/showList.js"></script>
     <script>
-        getList();
+        getList(0);
     </script>
 </head>
 <body>
@@ -31,6 +31,9 @@
 
             </tbody>
         </table>
+        <p id = "tags">
+
+        </p>
         <div class="ali-right">
             <button onclick="location.href='makePost'" class ="btn">글쓰기</button>
             <button onclick="getList()" class ="btn">글목록 새로고침</button>
