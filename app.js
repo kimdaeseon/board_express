@@ -36,7 +36,6 @@ app.get('/makePost', (req,res)=>{
 })
 app.get('/posts', (req, res)=>{
   const data = JSON.parse(req.session.valid);
-  console.log("일단은 왔어요!")
   let string = "";
   string += `<!DOCTYPE html>
   <html lang>

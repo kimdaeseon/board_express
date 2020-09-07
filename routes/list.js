@@ -65,7 +65,6 @@ router.get('/', (req, res, next)=> {
         result.sort((a,b)=>{
             return compareDate(JSON.parse(a).date, JSON.parse(b).date);
         })
-        console.log(result)
         res.send(result);
     })
 
