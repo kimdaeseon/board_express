@@ -3,6 +3,7 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
+var session = require('express-session')
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
@@ -12,6 +13,12 @@ var postRouter = require('./routes/post');
 var app = express();
 
 // view engine setup
+app.use(session({
+  secret:"asdzxcqweasdzxc",
+  resave : false,
+  saveUninitialized: true,
+  store: false
+}))
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'pug');
 
@@ -27,8 +34,8 @@ app.get('/', (req,res)=>{
 app.get('/makePost', (req,res)=>{
   res.sendFile(path.join(__dirname + "/views/makePost.html"))
 })
-app.get('/posts/:json', (req, res)=>{
-
+app.get('/posts', (req, res)=>{
+  const data = JSON.parse(req.session.valid);
   console.log("일단은 왔어요!")
   let string = "";
   string += `<!DOCTYPE html>
@@ -51,13 +58,13 @@ app.get('/posts/:json', (req, res)=>{
                   <tbody>
                       <tr>
                           <td id ="pTitle">제목</td>
-                          <td class = "postTitle" id="title">${JSON.parse(req.params.json).title}</td>
+                          <td class = "postTitle" id="title">${data.title}</td>
                       </tr>
                       <tr>
                           <td colspan="2">내용</td>
                       </tr>
                       <tr>
-                          <td colspan="2" id="content">${JSON.parse(req.params.json).content}</td>
+                          <td colspan="2" id="content">${data.content}</td>
                       </tr>
                       <tr><td colspan="2"><button type="submit" class ="btn">글쓰기</button></td></tr>
                   </tbody>

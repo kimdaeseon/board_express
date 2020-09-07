@@ -56,9 +56,9 @@ compareDate = (left, right) =>{
 }
 
 /* GET home page. */
-router.get('/', async (req, res, next)=> {
+router.get('/', (req, res, next)=> {
     let result = [];
-    await fs.readdir('data',async (err, list)=>{
+    fs.readdir('data',async (err, list)=>{
         for(let i of list){
             result.push(fs.readFileSync(`data/${i}`).toString())
         }
