@@ -9,7 +9,7 @@ router.get('/:postId', function(req, res, next) {
         if(err) res.send("error")
         else{
             let result = JSON.parse(data);
-            res.redirect(`/posts/${JSON.stringify(result)}`)
+            res.redirect(307 ,`/posts/${JSON.stringify(result)}`)
         }
     })
 });
