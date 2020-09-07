@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>test</title>
+    <link rel="stylesheet" href="/stylesheets/bootstrap.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+    <script src="/javascripts/showList.js"></script>
+    <script>
+        getList();
+    </script>
+</head>
+<body>
+    <div class="holy">
+        <h1>just Practice HTML</h1>
+        <p>
+            this HTML's purspose is learning express</br>
+        </p>
+        <table class ="table table-bordered">
+            <thead>
+                <tr>
+                    <th class ="numbers">번호</th>
+                    <th id = "listTitle">제목</th>
+                    <th id = "listTitle">작성 시간</th>
+                </tr>
+            </thead>
+            <tbody id ="listTarget">
+
+            </tbody>
+        </table>
+        <div class="ali-right">
+            <button onclick="location.href='makePost'" class ="btn">글쓰기</button>
+            <button onclick="getList()" class ="btn">글목록 새로고침</button>
+        </div>
+    </div>
+</body>
+</html>
