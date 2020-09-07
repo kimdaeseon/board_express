@@ -18,7 +18,7 @@ function getList(number){
                 js = JSON.parse(list[i]);
                 date = js.date.split(' ');
                 jsDate = date[3] + '/' + date[1] + '/' + date[2]  + '  ' + date[4];
-                string += `<tr><td class="numbers">${js.order}</td><td class="postTitle"><a href ="post/${js.title}" onclick="getPost('${js.titile}')">${js.title}</td><td>${jsDate}</td></tr>`
+                string += `<tr><td class="numbers">${js.order}</td><td class="postTitle"><a href ="post/${js.order}" onclick="getPost('${js.order}')">${js.title}</td><td>${jsDate}</td></tr>`
             }
         }
         else{
@@ -26,7 +26,7 @@ function getList(number){
                 js = JSON.parse(i);
                 date = js.date.split(' ');
                 jsDate = date[3] + '/' + date[1] + '/' + date[2]  + '  ' + date[4];
-                string += `<tr><td class="numbers">${js.order}</td><td class="postTitle"><a href ="post/${js.title}" onclick="getPost('${js.titile}')">${js.title}</td><td>${jsDate}</td></tr>`
+                string += `<tr><td class="numbers">${js.order}</td><td class="postTitle"><a href ="post/${js.order}">${js.title}</td><td>${jsDate}</td></tr>`
             }
         }
         for(let i = 0 ; i < listSize/10; i++){
@@ -37,14 +37,4 @@ function getList(number){
         return; 
     })
     
-}
-
-function getPost(postId){
-    fetch(`post/${postId}`,{
-        method: 'GET',
-    }).then((res)=>{
-        return res.json();
-    }).then((list)=>{
-        return; 
-    })
 }
